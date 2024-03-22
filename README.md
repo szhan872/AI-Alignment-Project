@@ -1,6 +1,8 @@
+
 # AI-Alignment-Project
 
 ## Introduction
+
 This repository contains a suite of AI models designed to evaluate and align text data across various dimensions, including toxicity, bias, and fairness. Our goal is to promote the development of more ethical, unbiased, and equitable AI systems by providing tools to assess and mitigate harmful content in text data.
 
 ## Features
@@ -24,23 +26,12 @@ To get started with our AI alignment models, follow these steps:
 2. Install required packages: pip install -r requirements.txt
 
 ## Models
-- **Model 1:** Description and purpose.
+- **Bias Detection Model:** The link to the model is D1V1DE/bias-detection on huggingface. A DistillRoBERTa bias classification model fine-tuned from valurank/distilroberta-bias. MBIC dataset is used as training data.
 - **Model 2:** Description and purpose.
 - **Model 3:** Description and purpose.
 
 ## License
 This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENSE) file for details.
-
-## Citation
-If you use our models or this repository in your research, please cite it using the following format:
-@misc{ai_alignment_model,
-author = {Your Name},
-title = {AI Alignment Model for Text Analysis},
-year = {2024},
-publisher = {GitHub},
-journal = {GitHub repository},
-howpublished = {\url{https://github.com/your-username/ai-alignment-model}}
-}
 
 
 ## Acknowledgments
