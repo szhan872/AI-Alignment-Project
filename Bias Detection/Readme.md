@@ -18,6 +18,9 @@ pip3 install torch torchvision torchaudio --index-url https://download.pytorch.o
 ## Model
 - **Bias Detection Model:** The link to the model is D1V1DE/bias-detection on huggingface. A DistillRoBERTa bias classification model fine-tuned from valurank/distilroberta-bias. MBIC dataset is used as training data.
 
+## HELM and Dbias
+These are also bias evaluation methods that are tested in early stage of this project. These two methods are then proved to be slow and inaccurate for this task. For installation and testing, please install the provided requirement.txt file in that folder again.
+
 ## Acknowledgments
 - Acknowledge any contributors, funding sources, or inspirational projects here.
 
