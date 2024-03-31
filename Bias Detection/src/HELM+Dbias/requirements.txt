@@ -1,0 +1,10 @@
+nltk==3.8.1
+Dbias
+https://huggingface.co/d4data/en_pipeline/resolve/main/en_pipeline-any-py3-none-any.whl
+typing-extensions==4.5.0
+typing-inspect==0.8.0
+spacy==3.2.6
+pydantic-core==3.14.6
+keras==2.15.0
+tensorflow==2.15.0
+datasets
