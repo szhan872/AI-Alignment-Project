@@ -1,6 +1,6 @@
 # Bias Detection Model
 
-This directory contains the bias detection model that is trained for classifying textual data into 1 for "biased" and 0 for "non-biased" binary category.  
+This directory contains the bias detection model that is trained for classifying textual data into 1 for "biased" and 0 for "non-biased" binary category. Overall, this model has better performance than other models (outperform Dbias on unseen datasets such as MBIC headlines: news_headlines_usa_biased.csv and news_headlines_usa_neutral.csv). It also runs 10 more times faster than Dbias and HELM metric. Both of these algorithms are implemented in src/HELM+Dbias folder.
 
 ### Prerequisites
 - Python 3.9+
@@ -22,9 +22,6 @@ pip3 install torch torchvision torchaudio --index-url https://download.pytorch.o
 
 ## HELM and Dbias
 These are also bias evaluation methods that are tested in early stage of this project. These two methods are then proved to be slow and inaccurate for this task. For installation and testing, please install the provided requirement.txt file in that folder again.
-
-## Acknowledgments
-- Acknowledge any contributors, funding sources, or inspirational projects here.
 
 ## Contact
 For questions or feedback, please open an issue in the repository or contact us directly at `ldvdzhang@gmail.com`.
