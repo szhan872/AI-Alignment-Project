@@ -10,6 +10,16 @@ This repository contains a suite of AI models designed to evaluate and align tex
 - **Bias Assessment:** Evaluate text for biased language to ensure fair and equitable AI treatments.
 - **Fairness Metrics:** Implement fairness metrics to audit AI models for discriminatory behaviors.
 
+## Demos
+
+- **Fairness Evaluation:**
+  - Data Perturbation Demo: 
+    [![Open In Colab](https://img.shields.io/badge/Data%20Perturbation-Open%20In%20Colab-yellow?style=for-the-badge&logo=googlecolab&labelColor=555555)](https://colab.research.google.com/drive/1qVCu62v1NDAFMwuHijJR_hSY8NhIVK9d?usp=sharing)
+
+  - Fairness Evaluation Demo:
+    [![Open In Colab](https://img.shields.io/badge/Fairness%20Evaluation-Open%20In%20Colab-green?style=for-the-badge&logo=googlecolab&labelColor=555555)](https://colab.research.google.com/drive/13OwZqz_wZNgc4O9uCqewwKP5QBRSSVLp?usp=sharing)
+
+
 ### Usage
 Refer to individual model directories for specific usage instructions. Typically, you can run a model using:
 

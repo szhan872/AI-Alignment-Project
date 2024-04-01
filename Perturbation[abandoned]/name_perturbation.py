@@ -72,7 +72,7 @@ class PersonNamePerturbation(Perturbation):
         prob: float,
         source_class: Dict[str, str],
         target_class: Dict[str, str],
-        name_file_path: Optional[str] = None,
+        name_file_path: Optional[str] = None,       ## 传进来了吗
         person_name_type: str = FIRST_NAME,
         preserve_gender: bool = True,
     ):

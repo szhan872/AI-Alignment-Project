@@ -6,10 +6,11 @@ import os
 from random import Random
 from typing import List
 
-# Determine the current directory path (assumed to be where main.py resides)
+# 获取当前文件（main.py）的绝对路径
 current_dir = os.path.dirname(os.path.abspath(__file__))
-# Construct the path to the 'data' directory within the current directory
+# 构建 data 文件夹的路径
 data_dir = os.path.join(current_dir, 'data')
+
 
 
 def load_dataset_func(dataset_name, dataset_sub_name=None, original_columns=None, rename_columns=None):
@@ -26,18 +27,17 @@ def load_dataset_func(dataset_name, dataset_sub_name=None, original_columns=None
     - A dataset with only the specified columns, with columns renamed as specified, or an error message.
     """
     try:
-        # Load dataset; if a sub-name is provided, load that specific dataset
         if dataset_sub_name:
             dataset = load_dataset(dataset_name, dataset_sub_name)['train']
         else:
             dataset = load_dataset(dataset_name)['train']
 
-        # If original columns are specified, remove all other columns
         if original_columns:
+            # Removing unwanted columns
             dataset = dataset.remove_columns([col for col in dataset.column_names if col not in original_columns])
 
-        # If rename_columns is specified, rename the columns accordingly
         if rename_columns:
+            # Renaming specified columns
             for original_col, new_col in rename_columns.items():
                 if original_col != new_col:  # Only rename if the original and new names are different
                     dataset = dataset.rename_column(original_col, new_col)
@@ -46,26 +46,29 @@ def load_dataset_func(dataset_name, dataset_sub_name=None, original_columns=None
     except Exception as e:
         return f"Error loading dataset: {str(e)}"
 
+# Example usage
+# dataset_name = 'ought/raft'
+# dataset_sub_name = 'tweet_eval_hate'
+# sentence_name = 'Tweet'
+# label_name = 'Label'
+# original_columns = [sentence_name, label_name]
+# rename_columns = {sentence_name: 'Sentence', label_name: 'Label'}
+
+# Load dataset and rename columns
+# dataset_text = load_dataset_func(dataset_name, dataset_sub_name, original_columns, rename_columns)
+
+# name_file_path = f"{root_path}person_name.txt"
+# dialect_mapping_file_path = f'{root_path}SAE_to_AAVE_mapping.json'
+
 
 def load_white_american_first_names(data_dir=data_dir, file_name="/person_name.txt"):
-    """
-    Load white American first names from a specified file.
-
-    Args:
-        data_dir (str): Directory path where the names file is located.
-        file_name (str): The name of the file containing the names.
-
-    Returns:
-        A list of white American first names.
-    """
-
     file_path = f"{data_dir}{file_name}"
     white_american_names = []
     with open(file_path, encoding="utf-8") as f:
         for line in f.readlines():
             parts = line.replace("\n", "").split(",")
             if len(parts) < 4:
-                continue  # Skip lines that do not have the expected format
+                continue  # Skip lines that don't have enough parts
             name, name_type, category, value = parts[0], parts[1], parts[2], parts[3]
             if name_type.lower() == "first_name" and category.lower() == "race" and value.lower() == "white_american":
                 white_american_names.append(name.strip().lower())
@@ -74,17 +77,7 @@ def load_white_american_first_names(data_dir=data_dir, file_name="/person_name.t
 
 
 def load_dialect_mapping(data_dir=data_dir, file_name="/SAE_to_AAVE_mapping.json"):
-    """
-    Load the dialect mapping from a JSON file.
-
-    Args:
-        data_dir (str): Directory path where the mapping file is located.
-        file_name (str): The name of the file containing the dialect mappings.
-
-    Returns:
-        A list of keys from the dialect mapping.
-    """
-
+    # Load the JSON file
     dialect_mapping_file_path = f"{data_dir}{file_name}"
     with open(dialect_mapping_file_path, 'r') as file:
         dialect_mapping = json.load(file)
@@ -92,28 +85,15 @@ def load_dialect_mapping(data_dir=data_dir, file_name="/SAE_to_AAVE_mapping.json
 
 
 def contains_and_highlight_terms(text, terms):
-    """
-    Check if the text contains any of the specified terms and highlight them.
-
-    Args:
-        text (str): The text to search within.
-        terms (List[str]): The list of terms to search for.
-
-    Returns:
-        A tuple (found, highlighted_text), where 'found' is a boolean indicating if any term was found,
-        and 'highlighted_text' is the text with the terms highlighted.
-    """
-
     highlighted_text = text
     found = False
     for term in terms:
-        # Match complete words only using regular expressions
+        # 使用正则表达式匹配完整的单词
         pattern = r"\b{}\b".format(re.escape(term))
         matches = re.findall(pattern, text, flags=re.IGNORECASE)
         if matches:
             found = True
-            # Highlight each matched term
-            for match in set(matches):  # Use set to avoid duplicating highlights
+            for match in set(matches):  # 使用set去重，避免重复替换相同的词
                 highlighted_text = re.sub(pattern, f"【{match}】", highlighted_text, flags=re.IGNORECASE)
                 print(highlighted_text)
     return found, highlighted_text

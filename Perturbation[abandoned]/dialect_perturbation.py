@@ -151,5 +151,35 @@ class DialectPerturbation(TextPerturbation):
         # Execute the RegEx
         return re.sub(self.pattern, sub_func, text, flags=re.IGNORECASE)
 
+    # def perturb(self, text: str, rng: Random) -> str:
+    #     def sub_func(m: re.Match):
+    #         word = m.group(0)  # 匹配到的完整单词
+    #         if rng.uniform(0, 1) < self.prob and word.lower() in self.mapping_dict:
+    #             synonyms = self.mapping_dict[word.lower()]
+    #             synonym = rng.choice(synonyms)
+    #             return synonym  # 直接返回替换后的单词
+    #         return word  # 未替换，返回原单词
+
+    #     return re.sub(self.pattern, sub_func, text, flags=re.IGNORECASE)
+
+## gender的
+
+# def perturb(self, text: str, rng: Random) -> str:
+#     """Perform the perturbations on the provided text."""
+#     # Create a dictionary mapping each word to its synonym
+#     synonym_dict = {word.lower(): synonym for (word, synonym) in self.word_synonym_pairs}
+
+#     # Split the text into tokens while preserving delimiters (words, spaces, punctuation)
+#     tokens = re.findall(r'\w+|\s+|[^\w\s]', text)
+
+#     # Replace each word if it's in the synonym dictionary
+#     for i, token in enumerate(tokens):
+#         if token.strip() and token.lower() in synonym_dict:  # Check if the token is a word and in the dictionary
+#             # Replace the token with its synonym while maintaining the original case
+#             tokens[i] = match_case(token, synonym_dict[token.lower()])
+
+#     # Rejoin the tokens into a single string
+#     return ''.join(tokens)
+
 
 
