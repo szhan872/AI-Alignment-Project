@@ -13,3 +13,13 @@ This project is designed to identify and analyze toxic comments using various to
 
 To set up this project, clone the repo and install it.
 
+## API Keys
+To use the Perspective API, you need to obtain an API key from <a href="https://www.perspectiveapi.com/">Perspective API</a>.
+
+*Warning*: Do not upload your API keys to GitHub. Instead, use environment variables or other methods to keep them secure.
+
+## Data
+This project uses a dataset in CSV format named youtoxic_english_1000.csv, which contains English language comments for analysis.
+
+## Contributing
+Contributions to this project are welcome. Please feel free to fork the repository and submit pull requests.
