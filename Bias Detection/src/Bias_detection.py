@@ -41,7 +41,8 @@ from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_sc
     
 #     return predicted_label
 
-
+# This class loads the model from hugging face and initializes the tokenizer and model
+# function: classify_text(text) takes a text input and returns the predicted label
 class BiasDetectionModel:
     def __init__(self):
 
