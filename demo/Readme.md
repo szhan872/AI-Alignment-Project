@@ -23,3 +23,8 @@ This project uses a dataset in CSV format named youtoxic_english_1000.csv, which
 
 ## Contributing
 Contributions to this project are welcome. Please feel free to fork the repository and submit pull requests.
+
+## Acknowledgments
+Perspective API for providing the toxicity analysis API.
+Detoxify creators for an excellent pre-trained model.
+All contributors who have invested time in improving this project.
